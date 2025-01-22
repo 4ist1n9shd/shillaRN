@@ -7,9 +7,7 @@ function fb(props) {
 
     return (
         <View>
-            <Text>딩딩딩 </Text>
-            
-
+            <Text>짱짱이 </Text>
         </View>
     );
 }
