@@ -18,11 +18,15 @@ const BoardNavi = () => {
             <Stack.Navigator initialRouteName='boardList'>
                 <Stack.Screen name='boardList' 
                 component={boardList} 
-                options={{ headerShown: false }}
+                // options={{ headerShown: false }}
                 />
-                <Stack.Screen name='boardDetail' component={boardDetail} />
-                <Stack.Screen name='boardWrite' component={boardWrite} />
-                <Stack.Screen name='boardModify' component={boardModify} />
+                <Stack.Screen name='boardDetail' 
+                component={boardDetail} />
+                <Stack.Screen name='boardWrite' 
+                component={boardWrite} 
+               />
+                <Stack.Screen name='boardModify' 
+                component={boardModify} />
             </Stack.Navigator>
         </SafeAreaProvider>
     );
