@@ -12,7 +12,7 @@ function boardList({navigation}) {
     ])
 
     const writeGo = ()=> {
-       // Alert.alert("늘렀냐?")
+    //    Alert.alert("눌렀냐옹?")
         navigation.navigate('BoardWrite', {setDatas, nowId, setNowId});
     }
 

@@ -6,7 +6,7 @@ const MainPage = ({ navigation }) => {
     <View style={styles.container}>
       <Button title="재훈" onPress={() => navigation.navigate('Jaehoon')} />
       <Button title="세훈" onPress={() => navigation.navigate('Sehoon')} />
-      <Button title="아람" onPress={() => navigation.navigate('Aram')} />
+      <Button title="문의게시판" onPress={() => navigation.navigate('Board')} />
       <Button title="수훈" onPress={() => navigation.navigate('Suhoon')} />
     </View>
   );

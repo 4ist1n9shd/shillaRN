@@ -5,7 +5,8 @@ import MainPage from './components/mainPage'; // 임시 메인 페이지
 
 import Suhoon from './components/suhoon';
 import Sehoon from './components/sehoon';
-import Aram from './components/aram';
+// import Aram from './components/aram';
+import Board from './components/boardNavi';
 import Jaehoon from './components/jaehoon';
 
 
@@ -17,7 +18,8 @@ const App = () => {
       <Stack.Navigator initialRouteName="MainPage">
         <Stack.Screen name="MainPage" component={MainPage} options={{ title: '임시 메인입니다' }} />
         <Stack.Screen name="Jaehoon" component={Jaehoon} />
-        <Stack.Screen name="Aram" component={Aram} />
+        {/* <Stack.Screen name="Aram" component={Aram} /> */}
+        <Stack.Screen name="Board" component={Board} />
         <Stack.Screen name="Sehoon" component={Sehoon} />
         <Stack.Screen name="Suhoon" component={Suhoon} />
       </Stack.Navigator>

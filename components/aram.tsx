@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const Aram = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>환영합니다 아람님</Text>
+      <Text style={styles.text}>잇츠 미 아람</Text>
     </View>
   );
 };

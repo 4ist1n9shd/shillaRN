@@ -25,8 +25,8 @@ function boardWrite({ route  , navigation}) {
     return (
         <View>
             <Text>글쓰기이지롱</Text>
-            <TextInput value={title} onChangeText={setTitle} placeholder='제목입력'/>
-            <TextInput value={content} onChangeText={setContent} placeholder='내용입력'/>
+            <TextInput value={title} onChangeText={setTitle} placeholder='제목을 입력하세요'/>
+            <TextInput value={content} onChangeText={setContent} placeholder='내용을 입력하세요'/>
 
             <Button title="저장" onPress={saveGo} />
         </View>
