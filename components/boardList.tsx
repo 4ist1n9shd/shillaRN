@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native';
 
 
@@ -6,9 +6,9 @@ function boardList({ navigation }) {
 
     const [nowId, setNowId] = useState(4)
     const [datas, setDatas] = useState([
-        { id: 1, title: 'Hi~I am Lisa', content: '내용1' },
-        { id: 2, title: '저는 신라호텔의 VIP입니다', content: '내용2' },
-        { id: 3, title: '문의할게요', content: '내용3' }
+        { id: 1, title: 'Hi~I am Lisa', content: 'hi~ I am Lisa, I want many towels' },
+        { id: 2, title: '저는 신라호텔의 VIP입니다', content: 'VIP의 혜택이 어떤 것이 있는지 궁금합니다' },
+        { id: 3, title: '문의할게요', content: '욕조가 있는 방인지 궁금해요' }
     ])
 
     const writeGo = () => {
@@ -51,7 +51,7 @@ function boardList({ navigation }) {
 
             <TouchableOpacity style={styles.btn} onPress={writeGo}>
 
-                <Text style={styles.btnText}>글쓰고싶어?</Text>
+                <Text style={styles.btnText}>글쓰기</Text>
             </TouchableOpacity>
 
         </View>
@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
         borderBottomColor: '#DDD',
     },
     listText: {
-        fontSize: 16,
+        fontSize: 18,
+        fontWeight:500,
         color: '#333', // FONT 색상
     },
     btn: {

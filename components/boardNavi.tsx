@@ -9,13 +9,16 @@ import boardList from './boardList';
 import boardDetail from './boardDetail';
 import boardWrite from './boardWrite';
 import boardModify from './boardModify';
+import MainPage from './mainPage';
 
 const Stack = createStackNavigator(); // 네비게이션을 stack 기반으로 동작
 
 const BoardNavi = () => {
     return (
         <SafeAreaProvider>
-            <Stack.Navigator initialRouteName='boardList'>
+            <Stack.Navigator 
+            initialRouteName='boardList'
+            >
                 <Stack.Screen name='boardList' 
                 component={boardList} 
                 // options={{ headerShown: false }}
