@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#333',
-    marginBottom: 21,
+    marginBottom: 20,
   },
   listWrap: {
     backgroundColor: '#F6F6F6', // POINT BACKGROUND 색상
