@@ -18,7 +18,7 @@ const Jaehoon = ({ navigation }) => {
 
   const roomData = [
     {
-      name: '스탠다드디럭스 복구중ㅎ',
+      name: '스탠다드디럭스',
       description: '모던한 콘셉트의 아늑한 공간으로 효율적인 구성이 돋보이는 객실입니다.',
       price: 100000,
       image: require('../assets/images/roomStandardDelux01.jpg'),
