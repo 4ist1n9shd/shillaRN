@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
-import WebView from 'react-native-webview';
+import { WebView } from 'react-native-webview';
 
 const Jaehoon = ({ navigation }) => {
   const webViewRef = useRef(null);
@@ -39,7 +39,7 @@ const Jaehoon = ({ navigation }) => {
     <View style={styles.container}>
       <WebView
         ref={webViewRef}
-        source={{ uri: 'https://your-web-page-url.com/booking' }} // 예약 페이지 URL
+        source={{ uri: 'file:///android_asset/web/booking.html' }} // 로컬 HTML 파일 경로
         style={styles.webview}
         onMessage={handleMessage}
         injectedJavaScript={injectedJavaScript}
