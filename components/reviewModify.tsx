@@ -43,7 +43,7 @@ function ReviewModify({ route, navigation}) {
       container: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#f9f9f9',
+        backgroundColor: '#FAF8F4',
       },
       header: {
         fontSize: 24,
@@ -61,7 +61,7 @@ function ReviewModify({ route, navigation}) {
         backgroundColor: '#fff',
       },
       textArea: {
-        height: 150,
+        height: 300,
         textAlignVertical: 'top',
       },
       saveButton: {
@@ -69,6 +69,7 @@ function ReviewModify({ route, navigation}) {
         padding: 15,
         borderRadius: 8,
         alignItems: 'center',
+        marginTop: 20,
       },
       saveButtonText: {
         color: '#fff',

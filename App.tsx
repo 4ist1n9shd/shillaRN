@@ -25,7 +25,7 @@ const App = () => {
         {/* <Stack.Screen name="Aram" component={Aram} /> */}
         <Stack.Screen name="Board" component={Board} />
         <Stack.Screen name="Sehoon" component={Sehoon} />
-        <Stack.Screen name="Suhoon" component={Suhoon} />
+        <Stack.Screen name="Review" component={Suhoon} />
         <Stack.Screen name="ReviewWrite" component={ReviewWrite} />
         <Stack.Screen name="ReviewDetail" component={ReviewDetail} />
         <Stack.Screen name="ReviewModify" component={ReviewModify} />

@@ -29,7 +29,7 @@ function Suhoon({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.header}>후기 게시판</Text>
 
-      <FlatList
+      <FlatList style={styles.listWrap}
         data={datas}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
@@ -49,7 +49,7 @@ function Suhoon({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#FAF8F4',
     padding: 20,
   },
   header: {
@@ -58,6 +58,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333',
     marginBottom: 20,
+  },
+  listWrap: {
+    backgroundColor: '#F6F6F6', // POINT BACKGROUND 색상
+    fontWeight: 'bold',
+    borderRadius: 10,
+    padding: 10,
   },
   writeButton: {
     backgroundColor: '#7A6C64',
@@ -71,16 +77,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  //listItem: {
+  //  backgroundColor: '#fff',
+  //  padding: 15,
+  //  borderRadius: 8,
+  //  marginBottom: 10,
+  //  shadowColor: '#000',
+  //  shadowOffset: { width: 0, height: 2 },
+  //  shadowOpacity: 0.1,
+  //  shadowRadius: 4,
+  //  elevation: 3,
+  //},
   listItem: {
-    backgroundColor: '#fff',
     padding: 15,
-    borderRadius: 8,
-    marginBottom: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    borderBottomWidth: 1,
+    borderBottomColor: '#DDD',
   },
   listItemTitle: {
     fontSize: 18,
