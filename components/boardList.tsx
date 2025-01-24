@@ -1,104 +1,114 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, Button, TouchableOpacity, StyleSheet } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
 
+function boardModify({ route  , navigation}) {
 
-function boardList({ navigation }) {
+    const {data,modifyReg} = route.params;
 
-    const [nowId, setNowId] = useState(4)
-    const [datas, setDatas] = useState([
-        { id: 1, title: 'Hi~I am Lisa', content: 'hi~ I am Lisa, I want many towels' },
-        { id: 2, title: '저는 신라호텔의 VIP입니다', content: 'VIP의 혜택이 어떤 것이 있는지 궁금합니다' },
-        { id: 3, title: '문의할게요', content: '욕조가 있는 방인지 궁금해요' }
-    ])
+    const [title, setTitle] = useState(data.title)
+    const [content, setContent] = useState(data.content)
 
-    const writeGo = () => {
-
-        navigation.navigate('boardWrite', { setDatas, nowId, setNowId });
+    const modifyClk = ()=>{
+        const newItem = { id : data.id, title, content }
+        modifyReg(newItem)
+        navigation.goBack()
     }
-
-    const detailGo = (data) => {
-
-        navigation.navigate('boardDetail', { data, deleteReg, listModifyReg });
-    }
-
-    const deleteReg = (delId) => {
-        setDatas((prevDatas) => prevDatas.filter((item) => item.id != delId))
-    }
-
-    const listModifyReg = (newItem) => {
-        setDatas((prevDatas) => prevDatas.map((item) => item.id == newItem.id ? newItem : item))
-    }
-
+    const cancelClk = () => {
+        navigation.goBack(); // 수정 취소시 뒤로 가기
+    };
     return (
-        <View style={styles.pageWrap}>
+        <View style={styles.container}>
+            <Text style={styles.pageTitle}>수정하기</Text>
+            
+            <View style={styles.inputContainer}>
+                <Text style={styles.label}>제목</Text>
+                <TextInput 
+                    style={styles.input} 
+                    value={title} 
+                    onChangeText={setTitle} 
+                    placeholder="제목을 입력하세요"
+                />
+            </View>
 
-            <Text style={styles.listTitle}>문의 목록</Text>
+            <View style={styles.inputContainer}>
+                <Text style={styles.label}>내용</Text>
+                <TextInput 
+                    style={[styles.input, styles.textArea]} 
+                    value={content} 
+                    onChangeText={setContent} 
+                    placeholder="내용을 입력하세요"
+                    multiline
+                />
+            </View>
 
-            <FlatList style={styles.listWrap}
-                data={datas}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={
-                    ({ item }) => (
-                        <TouchableOpacity onPress={() => detailGo(item)} style={styles.listItem}>
-                            <Text style={styles.listText}>{item.title}</Text>
-                        </TouchableOpacity>
-                    )
-
-                }
-
-            />
-
-
-            <TouchableOpacity style={styles.btn} onPress={writeGo}>
-
-                <Text style={styles.btnText}>글쓰기</Text>
-            </TouchableOpacity>
-
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity style={[styles.button, styles.cancelButton]} onPress={cancelClk}>
+                    <Text style={styles.buttonText}>취소</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.button, styles.modifyButton]} onPress={modifyClk}>
+                    <Text style={styles.buttonText}>수정</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    pageWrap: {
+    container: {
         flex: 1,
-        backgroundColor: '#FAF8F4', // MAIN 색상
         padding: 20,
+        backgroundColor: '#FAF8F4',
     },
-    listTitle: {
-        fontSize: 20,
+    pageTitle: {
+        fontSize: 24,
         fontWeight: 'bold',
-        color: '#333', // FONT 색상
+        color: '#333',
         textAlign: 'center',
+        marginBottom: 30,
+    },
+    inputContainer: {
         marginBottom: 20,
     },
-    listWrap: {
-        backgroundColor: '#F6F6F6', // POINT BACKGROUND 색상
+    label: {
+        fontSize: 16,
         fontWeight: 'bold',
-        borderRadius: 10,
-        padding: 10,
+        marginBottom: 5,
     },
-    listItem: {
+    input: {
+        backgroundColor: '#fff',
         padding: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#DDD',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#ddd',
     },
-    listText: {
-        fontSize: 18,
-        fontWeight:500,
-        color: '#333', // FONT 색상
+    textArea: {
+        minHeight: 100,
+        textAlignVertical: 'top', // 내용이 위로 시작되도록
     },
-    btn: {
-        backgroundColor: '#7A6C64', // SUB 색상
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 20,
+    },
+    button: {
+        flex: 1,
         padding: 15,
         borderRadius: 10,
         alignItems: 'center',
-        marginTop: 20,
+        marginHorizontal: 5,
     },
-    btnText: {
-        color: '#FAF8F4', // MAIN 색상
+    cancelButton: {
+        backgroundColor: '#000', // 취소 버튼 색상
+    },
+    modifyButton: {
+        backgroundColor: '#7A6C64', // 수정 버튼 색상
+    },
+    buttonText: {
+        color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
     },
 });
 
-export default boardList;
+export default boardModify;
