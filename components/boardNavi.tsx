@@ -15,14 +15,20 @@ const Stack = createStackNavigator(); // 네비게이션을 stack 기반으로 �
 const BoardNavi = () => {
     return (
         <SafeAreaProvider>
-            <Stack.Navigator initialRouteName='boardList'>
+            <Stack.Navigator 
+            initialRouteName='boardList'
+            >
                 <Stack.Screen name='boardList' 
                 component={boardList} 
-                options={{ headerShown: false }}
+                // options={{ headerShown: false }}
                 />
-                <Stack.Screen name='boardDetail' component={boardDetail} />
-                <Stack.Screen name='boardWrite' component={boardWrite} />
-                <Stack.Screen name='boardModify' component={boardModify} />
+                <Stack.Screen name='boardDetail' 
+                component={boardDetail} />
+                <Stack.Screen name='boardWrite' 
+                component={boardWrite} 
+               />
+                <Stack.Screen name='boardModify' 
+                component={boardModify} />
             </Stack.Navigator>
         </SafeAreaProvider>
     );
