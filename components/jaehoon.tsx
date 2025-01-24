@@ -1,10 +1,49 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useRef } from 'react';
+import { View, StyleSheet, Alert } from 'react-native';
+import { WebView } from 'react-native-webview';
 
-const Jaehoon = () => {
+const Jaehoon = ({ navigation }) => {
+  const webViewRef = useRef(null);
+
+  // WebView로부터 데이터를 수신
+  const handleMessage = (event) => {
+    const { date, room, price } = JSON.parse(event.nativeEvent.data);
+    if (date && room && price) {
+      // 다음 페이지로 데이터 전달
+      navigation.navigate('PaymentPreparation', { date, room, price });
+    } else {
+      Alert.alert('오류', '날짜와 객실 정보를 확인해주세요.');
+    }
+  };
+
+  // 웹뷰 초기 스크립트 (injectJavaScript 사용 가능)
+  const injectedJavaScript = `
+    (function() {
+      const sendDataToApp = () => {
+        const selectedDate = localStorage.getItem('selectedDate');
+        const selectedRoom = localStorage.getItem('selectedRoom');
+        const price = localStorage.getItem('price');
+        if (selectedDate && selectedRoom && price) {
+          window.ReactNativeWebView.postMessage(
+            JSON.stringify({ date: selectedDate, room: selectedRoom, price: price })
+          );
+        } else {
+          alert('날짜와 객실을 선택해주세요.');
+        }
+      };
+      document.getElementById('nextButton').addEventListener('click', sendDataToApp);
+    })();
+  `;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>환영합니다 재훈님</Text>
+      <WebView
+        ref={webViewRef}
+        source={{ uri: 'file:///android_asset/web/booking.html' }} // 로컬 HTML 파일 경로
+        style={styles.webview}
+        onMessage={handleMessage}
+        injectedJavaScript={injectedJavaScript}
+      />
     </View>
   );
 };
@@ -12,12 +51,9 @@ const Jaehoon = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
-  text: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  webview: {
+    flex: 1,
   },
 });
 
