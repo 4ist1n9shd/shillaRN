@@ -27,7 +27,7 @@ function boardDetail({ route  , navigation}) {
     }
 
     const modifyGo = ()=>{
-        navigation.navigate('BoardModify',{data, modifyReg})
+        navigation.navigate('boardModify',{data, modifyReg})
     }
 
     const modifyReg = (updateItem)=>{
