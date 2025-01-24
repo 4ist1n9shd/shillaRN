@@ -1,7 +1,7 @@
 import { useState }  from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Button, Alert } from 'react-native';
 
-function ReviewDetail({ route, navigation}) {
+function ReviewDetail({ route, navigation }) {
     const {data, deleteReg, listModifyReg} = route.params;
     const [detailData, setDetailData] = useState(data);
 
@@ -60,7 +60,7 @@ function ReviewDetail({ route, navigation}) {
       container: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#f9f9f9',
+        backgroundColor: '#FAF8F4',
       },
       inputContainer: {
         backgroundColor: '#fff',
@@ -71,7 +71,7 @@ function ReviewDetail({ route, navigation}) {
         borderColor: '#ddd',
       },
       textAreaContainer: {
-        minHeight: 150,
+        minHeight: 300,
         justifyContent: 'flex-start',
       },
       text: {

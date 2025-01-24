@@ -7,7 +7,7 @@ const MainPage = ({ navigation }) => {
       <Button title="재훈" onPress={() => navigation.navigate('Jaehoon')} />
       <Button title="세훈" onPress={() => navigation.navigate('Sehoon')} />
       <Button title="아람" onPress={() => navigation.navigate('Aram')} />
-      <Button title="수훈" onPress={() => navigation.navigate('Suhoon')} />
+      <Button title="수훈" onPress={() => navigation.navigate('Review')} />
     </View>
   );
 };
