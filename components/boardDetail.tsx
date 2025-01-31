@@ -30,10 +30,10 @@ function boardDetail({ route  , navigation}) {
         navigation.navigate('boardModify',{data, modifyReg})
     }
 
-    const modifyReg = (updateItem)=>{
-        setDetailData(updateItem)
-        listModifyReg(updateItem)
-    }
+    const modifyReg = (updateItem) => {
+        setDetailData(updateItem); // 수정된 데이터로 업데이트
+        listModifyReg(updateItem); // 부모 컴포넌트의 listModifyReg 호출
+    };
 
     return (
         <View>
