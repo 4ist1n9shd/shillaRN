@@ -12,7 +12,7 @@ import {
 
 const Jaehoon = ({ navigation }) => {
   const [selectedDate, setSelectedDate] = useState('');
-  const [selectedRoom, setSelectedRoom] = useState('');
+  const [selectedRoom, setSelectedRoom] = useState(null);
   const [isDateModalVisible, setIsDateModalVisible] = useState(false);
   const [isRoomModalVisible, setIsRoomModalVisible] = useState(false);
 
@@ -20,31 +20,31 @@ const Jaehoon = ({ navigation }) => {
     {
       name: '스탠다드디럭스',
       description: '모던한 콘셉트의 아늑한 공간으로 효율적인 구성이 돋보이는 객실입니다.',
-      price: 100000,
+      price: 260000,
       image: require('../assets/images/roomStandardDelux01.jpg'),
     },
     {
       name: '비즈니스디럭스',
       description: '비즈니스 고객을 위해 특별히 설계된 편안한 객실입니다.',
-      price: 150000,
+      price: 360000,
       image: require('../assets/images/roomStandardBusiness01.jpg'),
     },
     {
       name: '로열스위트',
       description: '모던한 분위기의 고급스러운 공간으로 다양한 편의시설을 제공합니다.',
-      price: 400000,
+      price: 2480000,
       image: require('../assets/images/roomSuiteRoyal01.jpg'),
     },
     {
       name: '신라스위트',
       description: '신라 브랜드만의 특별한 서비스와 경험을 제공합니다.',
-      price: 450000,
+      price: 2890000,
       image: require('../assets/images/roomSuiteShilla01.jpg'),
     },
     {
       name: '프레지덴셜스위트',
       description: '서울신라호텔 최고의 객실로 전세계 VIP를 위한 전용 공간입니다.',
-      price: 1000000,
+      price: 10000000,
       image: require('../assets/images/roomSuitePresidential01.jpg'),
     },
   ];
@@ -64,10 +64,10 @@ const Jaehoon = ({ navigation }) => {
     if (!selectedDate || !selectedRoom) {
       Alert.alert('오류', '날짜와 객실을 모두 선택해주세요.');
     } else {
-      // 다음 페이지로 데이터 전달
       navigation.navigate('PaymentPreparation', {
         date: selectedDate,
-        room: selectedRoom,
+        room: selectedRoom.name,
+        price: selectedRoom.price,
       });
     }
   };
@@ -94,7 +94,7 @@ const Jaehoon = ({ navigation }) => {
         onPress={() => setIsRoomModalVisible(true)}
       >
         <Text style={styles.inputText}>
-          {selectedRoom || '객실을 선택하세요'}
+          {selectedRoom ? selectedRoom.name : '객실을 선택하세요'}
         </Text>
       </TouchableOpacity>
 
@@ -140,7 +140,7 @@ const Jaehoon = ({ navigation }) => {
                 <TouchableOpacity
                   style={styles.roomCard}
                   onPress={() => {
-                    setSelectedRoom(item.name);
+                    setSelectedRoom(item);
                     setIsRoomModalVisible(false);
                   }}
                 >

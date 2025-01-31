@@ -11,6 +11,10 @@ import ReviewWrite from './components/reviewWrite';
 import ReviewDetail from './components/reviewDetail';
 import ReviewModify from './components/reviewModify';
 import LoginScreen from './components/LoginScreen'; // 로그인 화면 추가
+import PaymentPreparation from './components/PaymentPreparation'; // 결제 준비 페이지 추가
+import PaymentPage from './components/PaymentPage'; 
+import PaymentCompletePage from './components/PaymentCompletePage';
+
 
 const Stack = createStackNavigator();
 
@@ -41,6 +45,9 @@ const AppNavigator = () => {
           <Stack.Screen name="ReviewWrite" component={ReviewWrite} />
           <Stack.Screen name="ReviewDetail" component={ReviewDetail} />
           <Stack.Screen name="ReviewModify" component={ReviewModify} />
+          <Stack.Screen name="PaymentPreparation" component={PaymentPreparation} />
+          <Stack.Screen name="PaymentPage" component={PaymentPage} />
+          <Stack.Screen name="PaymentCompletePage" component={PaymentCompletePage} />
         </>
       )}
     </Stack.Navigator>
