@@ -4,14 +4,14 @@ import { TextInput } from 'react-native-gesture-handler';
 
 function boardModify({ route  , navigation}) {
 
-    const {data,modifyReg} = route.params;
+    const {data,listModifyReg } = route.params;
 
     const [title, setTitle] = useState(data.title)
     const [content, setContent] = useState(data.content)
 
     const modifyClk = ()=>{
         const newItem = { id : data.id, title, content }
-        modifyReg(newItem)
+        listModifyReg(newItem)
         navigation.goBack()
     }
     const cancelClk = () => {
