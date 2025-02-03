@@ -108,10 +108,10 @@ const styles = StyleSheet.create({
   logo: { width: 200, height: 80, resizeMode: 'contain' },
   navBar: { flexDirection: 'row', justifyContent: 'space-around', backgroundColor: '#333', paddingVertical: 10 },
   navButtonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
-  swiperContainer: { width: '100%', height: 200, marginBottom: 20 },
+  swiperContainer: { width: '100%', height: 200, marginBottom: 60 },
   swiperImage: { width: width, height: 200, resizeMode: 'cover' },
   mapTitle: { fontSize: 18, fontWeight: 'bold', marginBottom: 10, textAlign: 'center' },
-  map: { width: '100%', height: 300, marginTop: 10 },
+  map: { width: '100%', height: 300, marginTop: 10, marginBottom: 20 }, // 🔹 지도 아래 간격 추가
 });
 
 export default MainPage;
