@@ -9,6 +9,9 @@ const PaymentCompletePage = ({ route, navigation }) => {
       <Text style={styles.title}>예약이 완료되었습니다!</Text>
 
       <View style={styles.infoContainer}>
+        <Text style={styles.infoLabel}>아이디:</Text>
+        <Text style={styles.infoValue}>testuser</Text>
+
         <Text style={styles.infoLabel}>예약자 이름:</Text>
         <Text style={styles.infoValue}>{name}</Text>
 
