@@ -5,7 +5,11 @@ import { AuthProvider, AuthContext } from './AuthContext'; // AuthContext 추가
 import MainPage from './components/mainPage';
 import Suhoon from './components/suhoon';
 import Sehoon from './components/sehoon';
-import Board from './components/boardNavi';
+// import Board from './components/boardNavi';
+import boardDetail from './components/boardDetail'
+import boardModify from './components/boardModify'
+import boardWrite from './components/boardWrite'
+import boardList from './components/boardList'
 import Jaehoon from './components/jaehoon';
 import ReviewWrite from './components/reviewWrite';
 import ReviewDetail from './components/reviewDetail';
@@ -39,7 +43,11 @@ const AppNavigator = () => {
             options={{ title: '메인' }}
           />
           <Stack.Screen name="Jaehoon" component={Jaehoon} />
-          <Stack.Screen name="Board" component={Board} />
+          {/* <Stack.Screen name="Board" component={Board} /> */}
+          <Stack.Screen name="boardDetail" component={boardDetail} />
+          <Stack.Screen name="boardModify" component={boardModify} />
+          <Stack.Screen name="boardWrite" component={boardWrite} />
+          <Stack.Screen name="boardList" component={boardList} />
           <Stack.Screen name="Sehoon" component={Sehoon} />
           <Stack.Screen name="Review" component={Suhoon} />
           <Stack.Screen name="ReviewWrite" component={ReviewWrite} />
