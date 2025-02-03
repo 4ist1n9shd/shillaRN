@@ -7,6 +7,7 @@ const BUTTONS = [
   { title: '재훈', navigateTo: 'Jaehoon' },
   { title: '문의게시판', navigateTo: 'Board' },
   { title: '수훈', navigateTo: 'Review' },
+  { title: '예약내역', navigateTo: 'ReservationList' },
 ];
 
 const MainPage = ({ navigation }) => {
