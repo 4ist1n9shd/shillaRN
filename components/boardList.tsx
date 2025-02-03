@@ -15,19 +15,20 @@ function boardList({ navigation }) {
 
         navigation.navigate('boardWrite', { setDatas, nowId, setNowId });
     }
-
+    const deleteReg = (delId) => {
+        setDatas((prevDatas) => prevDatas.filter((item) => item.id != delId))
+    }
+    
     const detailGo = (data) => {
 
         navigation.navigate('boardDetail', { data, deleteReg, listModifyReg });
     }
-
-    const deleteReg = (delId) => {
-        setDatas((prevDatas) => prevDatas.filter((item) => item.id != delId))
-    }
-
+    
     const listModifyReg = (newItem) => {
         setDatas((prevDatas) => prevDatas.map((item) => item.id == newItem.id ? newItem : item))
+        navigation.navigate('boardModify', { data: newItem, listModifyReg });
     }
+    
 
     return (
         <View style={styles.pageWrap}>
