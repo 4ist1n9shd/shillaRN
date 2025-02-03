@@ -18,8 +18,6 @@ import LoginScreen from './components/LoginScreen'; // 로그인 화면 추가
 import PaymentPreparation from './components/PaymentPreparation'; // 결제 준비 페이지 추가
 import PaymentPage from './components/PaymentPage'; 
 import PaymentCompletePage from './components/PaymentCompletePage';
-import ReservationListPage from './components/ReservationListPage';
-
 
 const Stack = createStackNavigator();
 
@@ -57,7 +55,6 @@ const AppNavigator = () => {
           <Stack.Screen name="PaymentPreparation" component={PaymentPreparation} />
           <Stack.Screen name="PaymentPage" component={PaymentPage} />
           <Stack.Screen name="PaymentCompletePage" component={PaymentCompletePage} />
-          <Stack.Screen name="ReservationList" component={ReservationListPage} />
         </>
       )}
     </Stack.Navigator>

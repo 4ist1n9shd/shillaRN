@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -9,14 +9,12 @@ import {
   Alert,
   Image,
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Jaehoon = ({ navigation }) => {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [isDateModalVisible, setIsDateModalVisible] = useState(false);
   const [isRoomModalVisible, setIsRoomModalVisible] = useState(false);
-  const [reservations, setReservations] = useState([]); 
 
   const roomData = [
     {
@@ -73,25 +71,6 @@ const Jaehoon = ({ navigation }) => {
       });
     }
   };
-
-  const loadAllReservations = async () => {
-    try {
-      const keys = await AsyncStorage.getAllKeys();
-      const reservationKeys = keys.filter((key) => key.startsWith('reservation_')); // 고유 키 필터링
-      const reservationData = await AsyncStorage.multiGet(reservationKeys); // 모든 예약 데이터 가져오기
-
-      const parsedReservations = reservationData.map(([key, value]) => JSON.parse(value));
-      setReservations(parsedReservations); // 상태에 저장
-      console.log('✅ 모든 예약 내역 불러오기 성공:', parsedReservations);
-    } catch (error) {
-      console.error('❌ 예약 정보 불러오기 실패:', error);
-    }
-  };
-
-  useEffect(() => {
-    console.log('✅ 예약 페이지에 도달했습니다.');
-    loadAllReservations(); // 예약 페이지 진입 시 모든 예약 내역 불러오기
-  }, []);
 
   return (
     <View style={styles.container}>
