@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from '../components/Footer'; // 🔹 푸터 추가
 import {
   View,
   Text,
@@ -167,6 +168,7 @@ const Jaehoon = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={handleConfirm}>
         <Text style={styles.buttonText}>다음</Text>
       </TouchableOpacity>
+      
     </View>
   );
 };
