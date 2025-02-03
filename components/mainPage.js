@@ -7,7 +7,7 @@ import Footer from './footer'; // 🔹 푸터 추가
 const { width } = Dimensions.get('window'); // 화면 너비 가져오기
 
 const BUTTONS = [
-  { title: '재훈', navigateTo: 'Jaehoon' },
+  { title: '예약하기', navigateTo: 'Reserve' },
   { title: '문의게시판', navigateTo: 'boardList' },
   { title: '수훈', navigateTo: 'Review' },
 ];

@@ -10,7 +10,7 @@ import {
   Image,
 } from 'react-native';
 
-const Jaehoon = ({ navigation }) => {
+const Reserve = ({ navigation }) => {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [isDateModalVisible, setIsDateModalVisible] = useState(false);
@@ -282,4 +282,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Jaehoon;
+export default Reserve;

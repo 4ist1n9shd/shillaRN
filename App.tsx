@@ -10,7 +10,7 @@ import boardDetail from './components/boardDetail'
 import boardModify from './components/boardModify'
 import boardWrite from './components/boardWrite'
 import boardList from './components/boardList'
-import Jaehoon from './components/jaehoon';
+import Reserve from './components/Reserve';
 import ReviewWrite from './components/reviewWrite';
 import ReviewDetail from './components/reviewDetail';
 import ReviewModify from './components/reviewModify';
@@ -41,7 +41,7 @@ const AppNavigator = () => {
             component={MainPage}
             options={{ title: '메인' }}
           />
-          <Stack.Screen name="Jaehoon" component={Jaehoon} />
+          <Stack.Screen name="Reserve" component={Reserve} />
           {/* <Stack.Screen name="Board" component={Board} /> */}
           <Stack.Screen name="boardDetail" component={boardDetail} />
           <Stack.Screen name="boardModify" component={boardModify} />
