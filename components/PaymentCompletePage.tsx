@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const PaymentCompletePage = ({ route, navigation }) => {
   const { date, room, price, name } = route.params;
+
+  const savePaymentData = async () => {
+    try {
+      const paymentData = { date, room, price, name };
+      const uniqueKey = `reservation_${Date.now()}`; // 고유 키 생성
+      await AsyncStorage.setItem(uniqueKey, JSON.stringify(paymentData));
+      console.log(`✅ 결제 정보 저장 완료 (키: ${uniqueKey}):`, paymentData);
+    } catch (error) {
+      console.error('❌ 결제 정보 저장 실패:', error);
+    }
+  };
+
+  useEffect(() => {
+    savePaymentData(); // 결제 완료 후 저장
+  }, []);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>예약이 완료되었습니다!</Text>
 
       <View style={styles.infoContainer}>
+        <Text style={styles.infoLabel}>아이디:</Text>
+        <Text style={styles.infoValue}>testuser</Text>
+
         <Text style={styles.infoLabel}>예약자 이름:</Text>
         <Text style={styles.infoValue}>{name}</Text>
 

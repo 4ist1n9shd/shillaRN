@@ -10,6 +10,7 @@ const BUTTONS = [
   { title: '재훈', navigateTo: 'Jaehoon' },
   { title: '문의게시판', navigateTo: 'boardList' },
   { title: '수훈', navigateTo: 'Review' },
+  { title: '예약내역', navigateTo: 'ReservationList' },
 ];
 
 // 🔹 3장의 로컬 이미지 배열 (1920x1280 크기로 맞춤)
