@@ -1,12 +1,12 @@
 import { useState }  from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Alert, ScrollView } from 'react-native';
 
 function ReviewDetail({ route, navigation }) {
     const {data, deleteReg, listModifyReg} = route.params;
     const [detailData, setDetailData] = useState(data);
 
     const delGo = () => {
-        Alert.alert('리뷰 삭제','정말로 삭제하시겠습니까?', [
+        Alert.alert('후기 삭제','정말로 삭제하시겠습니까?', [
             {
                 text:'취소',
                 style:'cancel'
@@ -32,7 +32,7 @@ function ReviewDetail({ route, navigation }) {
     };
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.scrollContainer}>
             <View style={styles.inputContainer}>
                 <Text style={styles.text}>{detailData.title}</Text>
             </View>
@@ -55,7 +55,7 @@ function ReviewDetail({ route, navigation }) {
                     <Text style={styles.buttonText}>삭제</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
@@ -64,6 +64,10 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         backgroundColor: '#FAF8F4',
+    },
+    scrollContainer: {
+      padding: 10,
+      paddingBottom: 40,
     },
     inputContainer: {
         backgroundColor: '#fff',

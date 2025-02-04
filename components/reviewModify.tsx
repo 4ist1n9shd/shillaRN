@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Alert, ScrollView } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
@@ -87,7 +87,7 @@ function ReviewModify({ route, navigation}) {
   };
 
   return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
           <Text style={styles.header}>리뷰 수정</Text>
           <TextInput
               style={styles.input}
@@ -119,7 +119,7 @@ function ReviewModify({ route, navigation}) {
           <TouchableOpacity style={styles.saveButton} onPress={modifyClk}>
               <Text style={styles.saveButtonText}>수정</Text>
           </TouchableOpacity>
-      </View>
+      </ScrollView>
   );
 }
 
