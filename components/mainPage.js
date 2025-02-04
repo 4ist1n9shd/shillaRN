@@ -9,7 +9,7 @@ const { width } = Dimensions.get('window'); // 화면 너비 가져오기
 const BUTTONS = [
   { title: '예약하기', navigateTo: 'Reserve' },
   { title: '문의게시판', navigateTo: 'boardList' },
-  { title: '수훈', navigateTo: 'Review' },
+  { title: '후기', navigateTo: 'Review' },
 ];
 
 // 🔹 3장의 로컬 이미지 배열 (1920x1280 크기로 맞춤)
