@@ -1,5 +1,5 @@
 import { useState }  from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Button, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 
 function ReviewDetail({ route, navigation }) {
     const {data, deleteReg, listModifyReg} = route.params;
@@ -23,86 +23,99 @@ function ReviewDetail({ route, navigation }) {
     }
 
     const modifyGo = () => {
-        navigation.navigate('ReviewModify', {data, modifyReg})
-    }
+        navigation.navigate('ReviewModify', { data, modifyReg });
+    };
 
-    const modifyReg = (updateItem)=>{
-        setDetailData(updateItem)
-        listModifyReg(updateItem)
-    }
-    
+    const modifyReg = (updateItem) => {
+        setDetailData(updateItem);
+        listModifyReg(updateItem);
+    };
+
     return (
         <View style={styles.container}>
-          {/* 제목 섹션 */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.text}>{detailData.title}</Text>
-          </View>
-    
-          {/* 내용 섹션 */}
-          <View style={[styles.inputContainer, styles.textAreaContainer]}>
-            <Text style={styles.text}>{detailData.content}</Text>
-          </View>
-    
-          {/* 버튼 섹션 */}
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={[styles.button, styles.modifyButton]} onPress={modifyGo}>
-              <Text style={styles.buttonText}>수정</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.button, styles.deleteButton]} onPress={delGo}>
-              <Text style={styles.buttonText}>삭제</Text>
-            </TouchableOpacity>
-          </View>
+            <View style={styles.inputContainer}>
+                <Text style={styles.text}>{detailData.title}</Text>
+            </View>
+
+            <View style={[styles.inputContainer, styles.textAreaContainer]}>
+                <Text style={styles.text}>{detailData.content}</Text>
+            </View>
+
+            {detailData.imageUrl && (
+                <View style={styles.imageContainer}>
+                    <Image source={{ uri: detailData.imageUrl }} style={styles.image} />
+                </View>
+            )}
+
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity style={[styles.button, styles.modifyButton]} onPress={modifyGo}>
+                    <Text style={styles.buttonText}>수정</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.button, styles.deleteButton]} onPress={delGo}>
+                    <Text style={styles.buttonText}>삭제</Text>
+                </TouchableOpacity>
+            </View>
         </View>
-      );
-    }
-    
-    const styles = StyleSheet.create({
-      container: {
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
         flex: 1,
         padding: 20,
         backgroundColor: '#FAF8F4',
-      },
-      inputContainer: {
+    },
+    inputContainer: {
         backgroundColor: '#fff',
         padding: 15,
         borderRadius: 10,
         marginBottom: 15,
         borderWidth: 1,
         borderColor: '#ddd',
-      },
-      textAreaContainer: {
-        minHeight: 300,
+    },
+    textAreaContainer: {
+        minHeight: 250,
         justifyContent: 'flex-start',
-      },
-      text: {
+    },
+    text: {
         fontSize: 16,
         color: '#333',
         lineHeight: 22,
-      },
-      buttonContainer: {
+    },
+    imageContainer: {
+        alignItems: 'center',
+        marginVertical: 20,
+    },
+    image: {
+        width: 300,
+        height: 300,
+        borderRadius: 10,
+        resizeMode: 'contain',
+    },
+    buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 20,
-      },
-      button: {
+    },
+    button: {
         flex: 1,
         padding: 15,
         borderRadius: 8,
         alignItems: 'center',
         marginHorizontal: 5,
-      },
-      modifyButton: {
+    },
+    modifyButton: {
         backgroundColor: '#7A6C64',
-      },
-      deleteButton: {
+    },
+    deleteButton: {
         backgroundColor: '#333',
-      },
-      buttonText: {
+    },
+    buttonText: {
         color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
-      },
-    });
+    },
+});
     
 
 export default ReviewDetail;
