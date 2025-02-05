@@ -214,6 +214,7 @@ const styles = StyleSheet.create({
     margin: 20,
     borderRadius: 10,
     padding: 20,
+    maxHeight: '80%', // 최대 높이 제한 추가
   },
   modalTitle: {
     fontSize: 18,
