@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert, ScrollView } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import RNFS from 'react-native-fs';
@@ -82,7 +82,7 @@ function ReviewWrite({ route, navigation}) {
     };
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Text style={styles.header}>포토 후기 작성</Text>
             <TextInput
                 style={styles.input}
@@ -114,7 +114,7 @@ function ReviewWrite({ route, navigation}) {
             <TouchableOpacity style={styles.saveButton} onPress={saveReview}>
                 <Text style={styles.saveButtonText}>저장</Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     );
 }
 
@@ -123,6 +123,10 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         backgroundColor: '#FAF8F4'
+    },
+    scrollContainer: {
+      padding: 10,
+      paddingBottom: 40,
     },
     header: {
         fontSize: 24,
